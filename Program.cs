@@ -71,3 +71,51 @@
 // {
 //     Console.WriteLine("Такой технологии нет");
 // }
+// итоговая задача
+List<string> games = new List<string>
+{
+    "Minecraft",
+    "Terraria",
+    "Portal"
+};
+Console.Write("Введите название ещё одной игры: ");
+string newGame = Console.ReadLine();
+games.Add(newGame);
+Console.WriteLine("\nСписок игр:");
+
+for (int i = 0; i < games.Count; i++)
+{
+    Console.WriteLine($"{i + 1}. {games[i]}");
+}
+Dictionary<string, double> prices = new Dictionary<string, double>
+{
+    ["Minecraft"] = 1999.0,
+    ["Terraria"] = 699.0,
+    ["Portal"] = 499.0
+};
+Console.Write("\nВведите название игры, чтобы узнать её цену: ");
+string searchGame = Console.ReadLine();
+
+if (prices.TryGetValue(searchGame, out double price))
+{
+    Console.WriteLine($"Цена игры: {price:F2} руб.");
+}
+else
+{
+    Console.WriteLine("Такой игры нет в словаре цен.");
+}
+string genresText = "RPG,Sandbox,Action,RPG,Strategy,Action,Sandbox";
+string[] genresArray = genresText.Split(',');
+HashSet<string> genres = new HashSet<string>(genresArray);
+Console.WriteLine($"\nКоличество уникальных жанров: {genres.Count}");
+Console.Write("Введите жанр для поиска: ");
+string searchGenre = Console.ReadLine();
+
+if (genres.Contains(searchGenre))
+{
+    Console.WriteLine("Такой жанр есть в наборе.");
+}
+else
+{
+    Console.WriteLine("Такого жанра нет в наборе.");
+}
